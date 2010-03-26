@@ -126,6 +126,10 @@ window['ipb846707'].document.write(
     '<scr'+'ipt>setTimeout(function() { document.getElementById("b").value = decodeURIComponent("'+e(b)+'"); document.getElementById("f").submit(); }, 1);</scr'+'ipt>' +
     '</body></html>'
 );
+
+alert(b);
+alert(p);
+
 }_rlipb846707();void(0)
 function _clipb846707_close() 
 { 
