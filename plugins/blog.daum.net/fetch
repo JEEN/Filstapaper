@@ -7,8 +7,10 @@ sub fetch {
    my $r = $ua->get($url);
    my $c = $r->content;
    my ($u) = $c =~ /frame SRC="([^\"]+)"/;
-   $u = "http://blog.daum.net/" . $u;
-   my $r2 = $ua->get($u);
+   my ($author, $article) = $u =~ /blogid=([^&]+)&articleno=([^&]+)/;
+   
+   my $t = sprintf 'http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=%s&articleno=%s', $author, $article;
+   my $r2 = $ua->get($t);
    my $content = $r2->content;
    $content;
 }
