@@ -1,0 +1,14 @@
+use LWP::UserAgent;
+
+sub fetch {
+   my ($self, $url) = @_;
+
+   my $ua = LWP::UserAgent->new;
+   my $r = $ua->get($url);
+   my $c = $r->content;
+   my ($author, $article) = $c =~ /blogId=([^&]+).+?logNo=([^&]+)/;
+   my $u = sprintf 'http://blog.naver.com/PostView.nhn?blodId=%s&logNo=%s', $author, $article;
+   my $r2 = $ua->get($u);
+   my $content = $r2->content;
+   $content;
+}
