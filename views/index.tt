@@ -1,5 +1,14 @@
 <h2>Instapaper Proxy Service for Korean Web Pages</h2>
 
 <h3>Instapaper Bookmarklet을 Proxy에 맞춘 것으로 바꿔줄 필요가 있습니다.</h3>
+
+<a href="javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src','http://github.com/JEEN/Filstapaper/raw/master/etc/bookmarklet.js?u='+encodeURIComponent(d.location.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)">이 북마클릿</a> 을 북마크바로 끌어다놓으세요. <br/>
+<strong>당분간 시험운용기간을 거쳐 안정화시켜나갈 예정입니다.</strong>
+
 <h3>좀 깨는 사이트를 Instapaper 에 맞춰주는 Pluggable 한 구성을 노리고 있습니다.</h3>
 <h3>Instapaper에서 안보이는 사이트는 저에게(@JEEN_LEE) URL 을 보내주세요</h3>
+
+<pre>
+- jpnews.kr
+- ddanzi.com
+</pre>
