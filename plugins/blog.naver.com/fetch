@@ -1,4 +1,5 @@
 use LWP::UserAgent;
+use Encode ();
 
 sub fetch {
    my ($self, $url) = @_;
@@ -11,6 +12,6 @@ sub fetch {
 
    my $u = sprintf 'http://blog.naver.com/PostView.nhn?blogId=%s&logNo=%s', $author, $article;
    my $r2 = $ua->get($u);
-   my $content = $r2->content;
+   my $content = Encode::encode_utf8($r2->decoded_content);
    $content;
 }
