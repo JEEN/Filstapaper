@@ -2,6 +2,7 @@ package Filstapaper;
 use Dancer;
 use URI;
 use URI::Escape;
+use Data::Dumper;
 
 get '/' => sub {
     template 'index';
@@ -9,8 +10,14 @@ get '/' => sub {
 
 get r( '/filter/(.+)' ) => sub {
     my ($u) = splat;
+    my $param = params;
+
     $u = "http://" . $u;    
     my $uri = URI->new(uri_unescape($u));
+    delete $param->{splat};
+    if ($param) {
+	$uri->query_form($param);
+    }
     my $plugin = load_plugin($uri->host);
     my $content = $plugin->fetch($uri);
     $content;

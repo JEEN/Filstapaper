@@ -3,11 +3,13 @@ use LWP::UserAgent;
 sub fetch {
    my ($self, $url) = @_;
 
-   my $ua = LWP::UserAgent->new;
+   my $ua = LWP::UserAgent->new( agent => 'Mozilla/5.0 (X11; U; Linux i686; ja; rv:1.9b5) Gecko/2008050509 Firefox/3.0b5' );
    my $r = $ua->get($url);
    my $c = $r->content;
-   my ($author, $article) = $c =~ /blogId=([^&]+).+?logNo=([^&]+)/;
-   my $u = sprintf 'http://blog.naver.com/PostView.nhn?blodId=%s&logNo=%s', $author, $article;
+# /PostView.nhn?blogId=sotkfkdthwls&logNo=10083366750&beginTime=0&jumpingVid=&from=search&redirect=Log&widgetTypeCall=true
+   my ($author, $article) = $c =~ /src="http:.+?blogId=([^&]+)\&Redirect=Log\&logNo=(\d+)/m;
+
+   my $u = sprintf 'http://blog.naver.com/PostView.nhn?blogId=%s&logNo=%s', $author, $article;
    my $r2 = $ua->get($u);
    my $content = $r2->content;
    $content;
