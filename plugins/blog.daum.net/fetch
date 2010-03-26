@@ -1,0 +1,14 @@
+use LWP::UserAgent;
+
+sub fetch {
+   my ($self, $url) = @_;
+
+   my $ua = LWP::UserAgent->new;
+   my $r = $ua->get($url);
+   my $c = $r->content;
+   my ($u) = $c =~ /frame SRC="([^\"]+)"/;
+   $u = "http://blog.daum.net/" . $u;
+   my $r2 = $ua->get($u);
+   my $content = $r2->content;
+   $content;
+}
