@@ -1,4 +1,4 @@
-function _rlipb846707(){var title,d=document,l=d.location,href= 'http://util.myemy.com/filter/' + l.href;
+function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
 d.title = title = d.title.substring(12);
 if (href == 'http://www.instapaper.com/i4' || typeof iptstbt != 'undefined') { alert("The bookmarklet is correctly installed."); throw(0); }
 
@@ -44,7 +44,7 @@ if (/www\.google\.com\/reader\/i\//.test(d.location)) {
         return;
     }
     var l = getPermalink();
-    href = 'http://util.myemy.com/filter/'+l.url;
+    href = l.url;
     title=l.title;
 }
 
@@ -96,10 +96,10 @@ function jbs_compress(body_node)
     }catch(e){ _greader = true; }
 }
 
-var zz = href.match('http://(.+)');
-href = zz[0];
+href.match('http://(.+)');
 
-alert(href);
+href = 'http://util.myemy.com/filter/' + RegExp.$1;
+
 var e=window.getSelection,
     k=d.getSelection,
     x=d.selection,
