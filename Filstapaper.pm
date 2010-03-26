@@ -9,7 +9,7 @@ get '/' => sub {
 
 get r( '/filter/(.+)' ) => sub {
     my ($u) = splat;
-    
+    $u = "http://" . $u;    
     my $uri = URI->new(uri_unescape($u));
     my $plugin = load_plugin($uri->host);
     my $content = $plugin->fetch($uri);
