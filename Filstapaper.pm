@@ -2,7 +2,6 @@ package Filstapaper;
 use Dancer;
 use URI;
 use URI::Escape;
-use Data::Dumper;
 
 get '/' => sub {
     template 'index';
@@ -23,6 +22,8 @@ get r( '/filter/(.+)' ) => sub {
     $content;
 };
 
+# Inspired by Plagger::Plugin::Filter::FindEnclosures
+# TODO : Change to preload Plugin Modules / or use Destructor?
 sub load_plugin {
     my $host = shift;
 
