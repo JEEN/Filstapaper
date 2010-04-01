@@ -1,4 +1,3 @@
-use LWP::Simple;
 use LWP::UserAgent;
 
 sub fetch {

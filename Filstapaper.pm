@@ -28,7 +28,9 @@ sub load_plugin {
 
     (my $pkg = $host) =~ tr/A-Za-z0-9_/_/c;
 
-    open my $fh, "<", "plugins/".$host."/fetch";
+    my $loc = sprintf "plugins/%s/fetch", $host;
+    $loc = "plugins/base/fetch" unless -f $loc;
+    open my $fh, "<", $loc or die $!;
     my $code = join '', <$fh>;
     my $class = "Filstapaper::Site::$pkg";
     $code = join "\n", (
