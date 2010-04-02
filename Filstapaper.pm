@@ -7,6 +7,18 @@ get '/' => sub {
     template 'index';
 };
 
+get r( '/barcode/(.+)' ) => sub {
+    my ($u) = splat;
+    my $param = params;
+    $u = 'http://'. $u;
+    my $uri = URI->new(uri_unescape($u));
+    delete $param->{splat};
+    if ($param) { 
+	$uri->query_form($param);
+    }
+    $uri;
+};
+
 get r( '/filter/(.+)' ) => sub {
     my ($u) = splat;
     my $param = params;
