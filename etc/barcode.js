@@ -9,7 +9,8 @@ var e=window.getSelection,
     e=encodeURIComponent,
     z=d.createElement('scr'+'ipt'),
     p=e(href);
-    
+alert(p);
+   
 i=document.createElement('iframe');
 i.setAttribute('name', 'item_ffr');
 i.setAttribute('id', 'item_ffr');
