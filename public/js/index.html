@@ -1,0 +1,101 @@
+<html>
+<head>
+<style>
+    * {
+        color:#7F7F7F;
+        font-family:Arial,sans-serif;
+        font-size:12px;
+        font-weight:normal;
+    }    
+    #config{
+        overflow: auto;
+        margin-bottom: 10px;
+    }
+    .config{
+        float: left;
+        width: 200px;
+        height: 250px;
+        border: 1px solid #000;
+        margin-left: 10px;
+    }
+    .config .title{
+        font-weight: bold;
+        text-align: center;
+    }
+    #submit{
+        clear: both;
+    }
+    
+</style>
+
+<script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="jquery-barcode-1.3.3.js"></script>
+<script type="text/javascript">
+
+    function generateBarcode(){
+        $("#barcodeTarget").html("");
+        var value = $("#barcodeValue").val();
+        var btype = $("input[name=btype]:checked").val();
+        var settings = {
+            output:$("input[name=renderer]:checked").val(),
+            bgColor: $("#bgColor").val(),
+            color: $("#color").val(),
+			barWidth: $("#barWidth").val(),
+			barHeight: $("#barHeight").val()
+        };
+        $("#barcodeTarget").barcode(value, btype, settings);
+    }
+
+
+
+</script>
+</head>
+<body>
+
+<div id="generator">
+
+    <p>Please fill in the code : <input type="text" id="barcodeValue" value="12345670">
+        
+    <div id="config">
+        <div class="config">
+            <div class="title">Type</div>
+            <input type="radio" id="ean8" name="btype" value="ean8" checked="checked"><label for="ean8">EAN 8</label><br />
+            <input type="radio" id="ean13" name="btype" value="ean13"><label for="ean13">EAN 13</label><br />
+            <input type="radio" id="std25" name="btype" value="std25"><label for="std25">standard 2 of 5 (industrial)</label><br />
+            <input type="radio" id="int25" name="btype" value="int25"><label for="int25">interleaved 2 of 5</label><br />
+            <input type="radio" id="code11" name="btype" value="code11"><label for="code11">code 11</label><br />
+    
+            <input type="radio" id="code39" name="btype" value="code39"><label for="code39">code 39</label><br />
+            <input type="radio" id="code93" name="btype" value="code93"><label for="code93">code 93</label><br />
+            <input type="radio" id="code128" name="btype" value="code128"><label for="code128">code 128</label><br />
+            <input type="radio" id="codabar" name="btype" value="codabar"><label for="codabar">codabar</label><br />
+            <input type="radio" id="msi" name="btype" value="msi"><label for="msi">MSI</label><br /><br />
+        </div>
+        
+        <div class="config">
+            <div class="title">Misc</div>
+            Background : <input type="text" id="bgColor" value="#FFFFFF" size="7"><br />
+            "1" Bars : <input type="text" id="color" value="#000000" size="7"><br />
+            bar width: <input type="text" id="barWidth" value="1" size="3"><br />
+            bar height: <input type="text" id="barHeight" value="50" size="3"><br />
+        </div>
+        
+        <div class="config">
+            <div class="title">Format</div>
+            <input type="radio" id="css" name="renderer" value="css" checked="checked"><label for="css">CSS</label><br />
+            <input type="radio" id="bmp" name="renderer" value="bmp"><label for="bmp">BMP (not usable in IE)</label><br />
+            <input type="radio" id="svg" name="renderer" value="svg"><label for="svg">SVG (not usable in IE)</label><br />
+        </div>
+    </div>
+    <div id="submit">
+        <input type="button" onclick="generateBarcode();" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generate the barcode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
+    </div>
+
+    </p>
+</div>
+
+<div id="barcodeTarget" class="barcodeTarget"></div>
+
+<script>$("#barcodeTarget").barcode("1234567", "ean8");</script>
+
+</body></html>
