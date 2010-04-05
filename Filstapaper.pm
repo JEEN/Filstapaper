@@ -2,6 +2,7 @@ package Filstapaper;
 use Dancer;
 use URI;
 use URI::Escape;
+use Try::Tiny;
 
 get '/' => sub {
     template 'index';
@@ -16,7 +17,7 @@ get r( '/barcode/(.+)' ) => sub {
     if ($param) { 
 	$uri->query_form($param);
     }
-    $uri;
+    template 'barcode', { code => $param->{isbn} };
 };
 
 get r( '/filter/(.+)' ) => sub {
@@ -29,9 +30,16 @@ get r( '/filter/(.+)' ) => sub {
     if ($param) {
 	$uri->query_form($param);
     }
-    my $plugin = load_plugin($uri->host);
-    my $content = $plugin->fetch($uri);
-    $content;
+    my $plugin;
+    my $is_redirect = 0;
+    my $content; 
+    try {
+	$plugin = load_plugin($uri->host);
+        $content = $plugin->fetch($uri);  
+    } catch {
+	redirect $uri;
+   };
+   $content;
 };
 
 # Inspired by Plagger::Plugin::Filter::FindEnclosures
@@ -42,7 +50,7 @@ sub load_plugin {
     (my $pkg = $host) =~ tr/A-Za-z0-9_/_/c;
 
     my $loc = sprintf "plugins/%s/fetch", $host;
-    $loc = "plugins/base/fetch" unless -f $loc;
+    die unless -f $loc;
     open my $fh, "<", $loc or die $!;
     my $code = join '', <$fh>;
     my $class = "Filstapaper::Site::$pkg";
