@@ -1,3 +1,11 @@
+var support = {
+   'blog.daum.net': 1,
+   'blog.naver.com': 1,
+   'jpnews.kr': 1,
+   'www.ddanzi.com': 1,
+   'ytn.co.kr': 1
+};
+
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
 d.title = title = d.title.substring(12);
 if (href == 'http://www.instapaper.com/i4' || typeof iptstbt != 'undefined') { alert("The bookmarklet is correctly installed."); throw(0); }
@@ -97,9 +105,9 @@ function jbs_compress(body_node)
 }
 
 href.match('http://(.+)');
-
-href = 'http://util.myemy.com/filter/' + RegExp.$1;
-
+if (support[document.location.host]) {
+  href = 'http://util.myemy.com/filter/' + RegExp.$1;
+}
 var e=window.getSelection,
     k=d.getSelection,
     x=d.selection,
