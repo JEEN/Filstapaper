@@ -8,8 +8,9 @@ href = 'http://util.myemy.com/barcode/' + RegExp.$1;
 var e=window.getSelection,
     e=encodeURIComponent,
     z=d.createElement('scr'+'ipt'),
-    p='u=' + e(href);
-    
+    p=e(href);
+alert(p);
+   
 i=document.createElement('iframe');
 i.setAttribute('name', 'item_ffr');
 i.setAttribute('id', 'item_ffr');
