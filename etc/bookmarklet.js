@@ -3,7 +3,8 @@ var support_hosts = {
    'blog.naver.com': 1,
    'jpnews.kr': 1,
    'www.ddanzi.com': 1,
-   'ytn.co.kr': 1
+   'ytn.co.kr': 1,
+   'www.devpia.com': 1
 };
 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
