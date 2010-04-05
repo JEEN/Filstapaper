@@ -1,4 +1,4 @@
-var support = {
+var support_hosts = {
    'blog.daum.net': 1,
    'blog.naver.com': 1,
    'jpnews.kr': 1,
@@ -105,7 +105,7 @@ function jbs_compress(body_node)
 }
 
 href.match('http://(.+)');
-if (support[document.location.host]) {
+if (support_hosts[document.location.host]) {
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
 var e=window.getSelection,
