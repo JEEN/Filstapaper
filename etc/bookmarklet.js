@@ -105,10 +105,15 @@ function jbs_compress(body_node)
     }catch(e){ _greader = true; }
 }
 
-href.match('http://(.+)');
+
+href.match('^http://(.+)');
 if (support_hosts[document.location.host]) {
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
+if (href.match('^http://link.allblog.net/\d+/http://(.+)$')) {
+  href = 'http://util.myemy.com/filter/' + RegExp.$1;
+}
+
 var e=window.getSelection,
     k=d.getSelection,
     x=d.selection,
