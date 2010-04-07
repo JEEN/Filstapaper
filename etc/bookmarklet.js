@@ -106,12 +106,8 @@ function jbs_compress(body_node)
 }
 
 
-href.match('^http://(.+)');
+href.match('http://(.+)$');
 if (support_hosts[document.location.host]) {
-  href = 'http://util.myemy.com/filter/' + RegExp.$1;
-}
-if (/link\.allblog\.net\/link\//.test(href)) {
-  href.match('^http://.+?http://(.+)');
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
 
