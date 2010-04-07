@@ -110,7 +110,8 @@ href.match('^http://(.+)');
 if (support_hosts[document.location.host]) {
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
-if (href.match('^http://link.allblog.net/\d+/http://(.+)$')) {
+if (/link\.allblog\.net\/link\//.test(href)) {
+  href.match('^http://.+?http://(.+)');
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
 
