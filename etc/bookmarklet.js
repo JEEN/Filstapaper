@@ -107,7 +107,7 @@ function jbs_compress(body_node)
 
 
 href.match('http://(.+)$');
-if (support_hosts[document.location.host]) {
+if (support_hosts[document.location.host] || /link\.allblog\.net\//.test(href)) {
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
 
