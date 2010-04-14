@@ -5,7 +5,6 @@ var support_hosts = {
    'www.ddanzi.com': 1,
    'ytn.co.kr': 1,
    'www.devpia.com': 1,
-   'link.allblog.net': 1
 };
 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
@@ -105,10 +104,26 @@ function jbs_compress(body_node)
 }
     }catch(e){ _greader = true; }
 }
+var loc_host = document.location.host;
 
+// Allblog Link URL
+if (/link\.allblog\.net/.test(href)) {
+  href.match('.+(http://.+)$');
+  href = RegExp.$1;
+  href.match('http://([^/]+)');
+  loc_host = RegExp.$1;
+}
+
+// Daum View URL
+if (/v\.daum\.net/.test(href)) {
+  var o = document.getElementById('viewIframe');
+  href = o.src;
+  href.match('http://([^/]+)');
+  loc_host = RegExp.$1;
+}
 
 href.match('http://(.+)$');
-if (support_hosts[document.location.host]) {
+if (support_hosts[loc_host]) {
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
 
