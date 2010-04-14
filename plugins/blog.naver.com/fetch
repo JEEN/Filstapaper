@@ -8,10 +8,19 @@ sub fetch {
    my $r = $ua->get($url);
    my $c = $r->content;
 # /PostView.nhn?blogId=sotkfkdthwls&logNo=10083366750&beginTime=0&jumpingVid=&from=search&redirect=Log&widgetTypeCall=true
-   my ($author, $article) = $c =~ /src="http:.+?blogId=([^&]+)\&Redirect=Log\&logNo=(\d+)/m;
+   my ($author, $article);
+   if ($c =~ /src="http:.+?blogId=([^&]+).*?\&logNo=(\d+)/m) {
+     $author = $1;
+     $article = $2;
+   } elsif ($c =~ /%2F([^%]+)%2F([^&]+)/) {
+     $author = $1;
+     $article = $2;
+   }
 
    my $u = sprintf 'http://blog.naver.com/PostView.nhn?blogId=%s&logNo=%s', $author, $article;
    my $r2 = $ua->get($u);
-   my $content = Encode::encode_utf8($r2->decoded_content);
+   my $content = $r2->decoded_content;
+   $content =~ s/MS949/utf-8/;
+   $content = Encode::encode_utf8($content);
    $content;
 }
