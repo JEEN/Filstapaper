@@ -4,7 +4,8 @@ var support_hosts = {
    'jpnews.kr': 1,
    'www.ddanzi.com': 1,
    'ytn.co.kr': 1,
-   'www.devpia.com': 1
+   'www.devpia.com': 1,
+   'link.allblog.net': 1
 };
 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
@@ -107,7 +108,7 @@ function jbs_compress(body_node)
 
 
 href.match('http://(.+)$');
-if (support_hosts[document.location.host] || /link\.allblog\.net\//.test(href)) {
+if (support_hosts[document.location.host]) {
   href = 'http://util.myemy.com/filter/' + RegExp.$1;
 }
 
