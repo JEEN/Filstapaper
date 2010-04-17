@@ -4,6 +4,12 @@
 <title>Filstapaper</title>
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="http://platform.twitter.com/anywhere.js?id=Ru88TiHsD0DbzFwk3236iQ&v=1"></script>
+<script type="text/javascript">
+   twttr.anywhere(function(twitter) {
+      twitter.hovercards();
+   });
+</script>
 </head>
 <body>
 <div id="content">

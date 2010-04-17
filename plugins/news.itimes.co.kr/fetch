@@ -1,0 +1,13 @@
+use LWP::UserAgent;
+use Encode;
+
+sub fetch {
+   my ($self, $uri) = @_;
+
+   my $ua = LWP::UserAgent->new;
+   $ua->agent('Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8');
+   my $res1 = $ua->get($uri);
+   my $r = $res1->decoded_content;
+   $r =~ s/ks_c_5601-1987/utf-8/;
+   Encode::encode_utf8($r);
+}
