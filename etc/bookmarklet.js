@@ -5,7 +5,7 @@ var support_hosts = {
    'www.ddanzi.com': 1,
    'ytn.co.kr': 1,
    'www.devpia.com': 1,
-   'news.itimes.co.kr': 1
+   'news.itimes.co.kr': 1,
 };
 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
@@ -113,11 +113,18 @@ if (/link\.allblog\.net/.test(href)) {
   href = RegExp.$1;
   href.match('http://([^/]+)');
   loc_host = RegExp.$1;
-}
+} 
 
 // Daum View URL
 if (/v\.daum\.net/.test(href)) {
   var o = document.getElementById('viewIframe');
+  href = o.src;
+  href.match('http://([^/]+)');
+  loc_host = RegExp.$1;
+}
+
+if (/www\.100in\.com/.test(href)) {
+  var o = document.getElementById('main_frame');
   href = o.src;
   href.match('http://([^/]+)');
   loc_host = RegExp.$1;
