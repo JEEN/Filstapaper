@@ -30,11 +30,9 @@ get r( '/filter/(.+)' ) => sub {
     if ($param) {
 	$uri->query_form($param);
     }
-    my $plugin;
-    my $is_redirect = 0;
     my $content; 
     try {
-	$plugin = load_plugin($uri->host);
+	my $plugin = load_plugin($uri->host);
         $content = $plugin->fetch($uri);  
     } catch {
 	redirect $uri;
