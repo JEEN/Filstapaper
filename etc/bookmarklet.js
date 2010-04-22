@@ -107,8 +107,8 @@ function jbs_compress(body_node)
 }
 var loc_host = document.location.host;
 
-// Allblog Link URL
-if (/link\.allblog\.net/.test(href)) {
+// Allblog/Blog Korea Link URL
+if (/link\.allblog\.net/.test(href) || /blogit\.blogkorea\.net/.test(href)) {
   href.match('.+(http://.+)$');
   href = RegExp.$1;
   href.match('http://([^/]+)');
