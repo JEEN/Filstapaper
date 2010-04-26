@@ -7,6 +7,7 @@ var support_hosts = {
    'www.devpia.com': 1,
    'news.itimes.co.kr': 1,
    'www.etnews.co.kr': 1,
+   'www.mediamob.co.kr':1,
 };
 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;

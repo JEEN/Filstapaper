@@ -1,0 +1,17 @@
+use LWP::UserAgent;
+use URI;
+
+sub fetch {
+   my ($self, $uri) = @_;
+
+   my $ua = LWP::UserAgent->new;
+
+   my $id = $uri->query_param('id');
+   my $url = $uri;
+   $url =~ s/blog\.aspx.+$/frmView\.aspx/;
+   my $u = URI->new($url);
+   $u->query_form( id => $id ); 
+   my $res1 = $ua->get($u);
+   my $c = Encode::encode_utf8($res1->decoded_content);
+   $c;
+}
