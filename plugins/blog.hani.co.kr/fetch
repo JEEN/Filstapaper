@@ -1,0 +1,15 @@
+use LWP::UserAgent;
+
+sub fetch {
+   my ($self, $uri) = @_;
+
+   my $ua = LWP::UserAgent->new;
+
+   my $res1 = $ua->get($uri);
+   my $r = $res1->content;
+   my ($u) = $r =~ /id='papermain' src='([^']+)'/;
+   return $r unless $u;
+   $u = 'http://blog.hani.co.kr' . $u;
+   my $res2 = $ua->get($u);    
+   $res2->content;
+}
