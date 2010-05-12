@@ -11,7 +11,7 @@ sub fetch {
    return $r unless $u;
    $u = 'http://blog.hani.co.kr' . $u;
    my $res2 = $ua->get($u);    
-   my $content = $res2->content;
+   my $content = $res2->decoded_content;
    $content =~ s/KSC5601/utf-8/g;
-   $content;
+   Encode::encode_utf8($content);
 }
