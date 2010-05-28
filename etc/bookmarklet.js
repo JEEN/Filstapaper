@@ -10,6 +10,7 @@ var support_hosts = {
    'www.mediamob.co.kr': 1,
    'www.cbs.co.kr': 1,
    'blog.hani.co.kr': 1,
+   'kr.blog.yahoo.com': 1,
 };
 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
