@@ -138,7 +138,7 @@ if (/www\.100in\.com/.test(href)) {
 
 href.match('http://(.+)$');
 if (support_hosts[loc_host]) {
-  href = 'http://util.myemy.com/filter/' + RegExp.$1;
+  href = 'http://app.perl.kr/filstapaper/filter/' + RegExp.$1;
 }
 
 var e=window.getSelection,
