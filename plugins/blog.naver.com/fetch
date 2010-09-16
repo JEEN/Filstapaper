@@ -1,6 +1,6 @@
 use LWP::UserAgent;
 use Encode ();
-
+use Data::Dumper;
 sub fetch {
    my ($self, $url) = @_;
 
@@ -9,14 +9,13 @@ sub fetch {
    my $c = $r->content;
 # /PostView.nhn?blogId=sotkfkdthwls&logNo=10083366750&beginTime=0&jumpingVid=&from=search&redirect=Log&widgetTypeCall=true
    my ($author, $article);
-   if ($c =~ /src="http:.+?blogId=([^&]+).*?\&logNo=(\d+)/m) {
+   if ($c =~ /src=".+?blogId=([a-z0-9_]+).*?\&logNo=(\d+)/m) {
      $author = $1;
      $article = $2;
    } elsif ($c =~ /%2F([^%]+)%2F([^&]+)/) {
      $author = $1;
      $article = $2;
    }
-
    my $u = sprintf 'http://blog.naver.com/PostView.nhn?blogId=%s&logNo=%s', $author, $article;
    my $r2 = $ua->get($u);
    my $content = $r2->decoded_content;
