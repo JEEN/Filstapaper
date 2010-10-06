@@ -8,7 +8,7 @@ get '/' => sub {
     template 'index';
 };
 
-get r( '/barcode/(.+)' ) => sub {
+get qr{ '/barcode/(.+)' } => sub {
     my ($u) = splat;
     my $param = params;
     $u = 'http://'. $u;
@@ -20,7 +20,7 @@ get r( '/barcode/(.+)' ) => sub {
     template 'barcode', { code => $param->{isbn} };
 };
 
-get r( '/filter/(.+)' ) => sub {
+get qr{/filter/(.+)} => sub {
     my ($u) = splat;
     my $param = params;
 
@@ -35,7 +35,7 @@ get r( '/filter/(.+)' ) => sub {
 	my $plugin = load_plugin($uri->host);
         $content = $plugin->fetch($uri);  
     } catch {
-	redirect $uri;
+	redirect $uri, 301;
    };
    $content;
 };
