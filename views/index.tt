@@ -1,42 +1,7 @@
-<h2>Instapaper Proxy Service for Korean Web Pages</h2>
+<h2>Filstapaper</h2>
 
-<h3>Instapaper Bookmarklet을 Proxy에 맞춘 것으로 바꿔줄 필요가 있습니다.</h3>
-
-<a href="javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src','http://github.com/JEEN/Filstapaper/raw/master/etc/bookmarklet.js?u='+encodeURIComponent(d.location.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)">Read Later!!</a> 을 북마크바로 끌어다놓으세요. <br/>
-
-<h3>좀 깨는 사이트를 Instapaper 에 맞춰주는 Pluggable 한 구성을 노리고 있습니다.</h3>
-<h3>Instapaper에서 안보이는 사이트는 저에게(@JEEN_LEE) URL 을 보내주세요</h3>
-
-<pre>
-# 2010/06/09
-- blog.paran.com
-- www.jpnews.kr (jpnews.kr => www.jpnews.kr)
-# 2010/05/28
-- kr.blog.yahoo.com
-# 2010/05/10
-- blog.hani.co.kr
-# 2010/04/30
-- www.cbs.co.kr
-# 2010/04/26
-- www.etnews.co.kr
-# 2010/04/22
-- blogit.blogkorea.net
-# 2010/04/19
-- www.100in.com
-# 2010/04/18
-- news.itimes.co.kr (reported by @waejin)
-# 2010/04/14
-- link.allblog.net
-- v.daum.net
-# 2010/04/..
-- jpnews.kr
-- ddanzi.com
-- blog.daum.net
-- blog.naver.com
-# 2010/04/05
-- ytn.co.kr (reported by @waejin)
-- www.devpia.com
-</pre>
+<p><a href="javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src','http://github.com/JEEN/Filstapaper/raw/master/etc/bookmarklet.js?u='+encodeURIComponent(d.location.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)">Read Later!!</a> 을 북마크바로 끌어다놓으세요. </p>
+<p>기존에 사용하던 Instapaper 북마클릿 대신에 이걸 쓰시면 됩니다.</p>
 
 <hr>
 <img src="/images/PoweredByPerl.png" />
