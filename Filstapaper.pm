@@ -33,6 +33,7 @@ get qr{/imgprx/(.+)} => sub {
   }
   my $content = LWP::Simple::get($uri);
   content_type 'image/jpeg';
+  header 'Content-Length' => length($content);
   $content;
 };
 
