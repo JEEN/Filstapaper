@@ -3,6 +3,7 @@ use Dancer;
 use URI;
 use URI::Escape;
 use Try::Tiny;
+use LWP::Simple ();
 
 get '/' => sub {
     template 'index';
@@ -18,6 +19,21 @@ get qr{ '/barcode/(.+)' } => sub {
 	$uri->query_form($param);
     }
     template 'barcode', { code => $param->{isbn} };
+};
+
+get qr{/imgprx/(.+)} => sub {
+  my ($u) = splat;
+  my $param = params;
+
+  $u = "http://" . $u;
+  my $uri = URI->new(uri_unescape($u));
+  delete $param->{splat};
+  if ($param) {
+    $uri->query_form($param);
+  }
+  my $content = LWP::Simple::get($uri);
+  headers 'Content-Type' => 'image/jpeg';  
+  $content;
 };
 
 get qr{/filter/(.+)} => sub {
