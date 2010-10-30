@@ -32,7 +32,7 @@ get qr{/imgprx/(.+)} => sub {
     $uri->query_form($param);
   }
   my $content = LWP::Simple::get($uri);
-  headers 'Content-Type' => 'image/jpeg';  
+  header 'Content-Type' => 'image/jpeg';  
   $content;
 };
 
