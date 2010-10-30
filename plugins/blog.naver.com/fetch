@@ -19,7 +19,7 @@ sub fetch {
    my $r2 = $ua->get($u);
    my $content = $r2->decoded_content;
    $content =~ s/MS949/utf-8/;
-   $content =~ s{http://postfiles}{http://app.perl.kr/imgprx/postfiles}g;
+   $content =~ s{http://postfiles}{http://app.perl.kr/filstapaper/imgprx/postfiles}g;
    $content = Encode::encode_utf8($content);
    $content;
 }
