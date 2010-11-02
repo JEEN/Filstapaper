@@ -6,7 +6,7 @@ use Try::Tiny;
 use LWP::Simple ();
 
 get '/' => sub {
-    template 'index';
+    template 'index', { supports => config->{supports} };
 };
 
 get qr{ '/barcode/(.+)' } => sub {

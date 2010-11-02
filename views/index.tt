@@ -1,8 +1,20 @@
-<h2>Filstapaper</h2>
+<h1>Filstapaper</h1>
 
+<h2>How To Use?</h2>
 <p><a href="javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src','http://github.com/JEEN/Filstapaper/raw/master/etc/bookmarklet.js?u='+encodeURIComponent(d.location.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)">Read Later!!</a> 을 북마크바로 끌어다놓으세요. </p>
 <p>기존에 사용하던 Instapaper 북마클릿 대신에 이걸 쓰시면 됩니다.</p>
 
-<hr>
+<h2>Supports</h2>
+<ul>
+ [% FOREACH site IN supports %]
+   <li style="list-style-image: url([% site.favicon %])"><a target="_blank" href="[% site.url %]">[% site.title %]</a></li> 
+ [% END %]
+</ul>
+
+<h2>SEE ALSO</h2>
+<ul>
+  <li style="list-style-image: url(http://github.com/favicon.ico)"><a target="_blank" href="http://github.com/JEEN/Filstapaper/">JEEN's Filstapaper at master - GitHub</a></li>
+  <li style="list-style-image: url(http://jeen.tistory.com/favicon.ico)"><a target="_blank" href="http://jeen.tistory.com/tag/filstapaper">이빨까기인형 ::</a></li>
+</ul>
 
 <img src="/images/PoweredByPerl.png" />
