@@ -129,7 +129,8 @@ if (/v\.daum\.net/.test(href)) {
   loc_host = RegExp.$1;
 }
 
-if (/www\.100in\.com/.test(href)) {
+// 100인닷컴
+if (/www\.100in\.com/.test(href) || /metablog\.idomin\.com/.test(href)) {
   var o = document.getElementById('main_frame');
   href = o.src;
   href.match('http://([^/]+)');
