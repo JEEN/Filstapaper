@@ -1,6 +1,7 @@
 layout: "main"
 logger: "file"
 charset: utf8
+
 template: template_toolkit
 engines:
   template_toolkit:
@@ -8,6 +9,9 @@ engines:
     start_tag: '[%'
     end_tag: '%]'
 
+aliases:
+  "^[^\.]+\.blog\.me": "blog.naver.com"
+  
 supports:
   - url: http://blog.daum.net/
     favicon: http://blog.daum.net/favicon.ico
