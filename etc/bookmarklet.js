@@ -12,6 +12,7 @@ var support_hosts = {
    'blog.hani.co.kr': 1,
    'kr.blog.yahoo.com': 1,
    'blog.paran.com': 1,
+   'm.mt.co.kr': 1,
 };
 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
