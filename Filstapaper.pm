@@ -4,9 +4,12 @@ use URI;
 use URI::Escape;
 use Try::Tiny;
 use LWP::Simple ();
+use YAML;
+
+my $sites = YAML::LoadFile('sites.yaml');
 
 get '/' => sub {
-  template 'index', { supports => config->{supports} };
+  template 'index', { supports => $sites->{supports} };
 };
 
 get qr{ '/barcode/(.+)' } => sub {
@@ -61,7 +64,7 @@ get qr{/filter/(.+)} => sub {
 sub get_alias_host {
   my $host = shift;
 
-  while(my ($match,$alias) = each %{ config->{aliases} }) {
+  while(my ($match,$alias) = each %{ $sites->{aliases} }) {
     return $alias if $host =~ /$match/;
   }
 }
