@@ -41,4 +41,6 @@ supports:
   - url: http://www.ytn.co.kr/
     favicon: http://www.ytn.co.kr/favicon.ico
     title: 24 HOUR NEWS CHANNEL ::::: YTN (와이티엔)
-
+  - url: http://m.mt.co.kr/
+    favicon: http://www.mt.co.kr/favicon.ico
+    title: 머니투데이 모바일
