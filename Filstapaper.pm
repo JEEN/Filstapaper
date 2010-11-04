@@ -50,9 +50,8 @@ get qr{/filter/(.+)} => sub {
   }
   my $content; 
   try {
-	  my $plugin = load_plugin($uri->host);
-    debug $plugin;
-    $content = $plugin->fetch($uri);  
+	  my $fetcher = load_fetcher($uri->host);
+    $content = $fetcher->fetch($uri);  
   } catch {
     redirect $uri, 301;
   };
@@ -68,25 +67,24 @@ sub get_alias_host {
 }
 
 # Inspired by Plagger::Plugin::Filter::FindEnclosures
-# TODO : Change to preload Plugin Modules / or use Destructor?
-sub load_plugin {
+sub load_fetcher {
   my $host = shift;
 
   $host = get_alias_host($host) || $host;
 
   (my $pkg = $host) =~ tr/A-Za-z0-9_/_/c;
-  my $loc = sprintf "plugins/%s/fetch", $host;
-  die unless -f $loc;
-  open my $fh, "<", $loc or die $!;
+  my $loc = sprintf "sites/%s", $host;
+  open my $fh, "<", $loc or die "Can't found host : $host";
   my $code = join '', <$fh>;
   my $class = "Filstapaper::Site::$pkg";
+  # use Data::Simple::Section
   $code = join "\n", (
     "package $class;",
 	  'use strict;',
 	  'use warnings;',
     "no warnings qw(redefine);",
     "sub new { bless {}, shift }",
-	  "sub site_name { '$host' }",
+	  "sub host { '$host' }",
 	  $code,
 	  "1;" );
   eval $code;
