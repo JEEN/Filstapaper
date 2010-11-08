@@ -92,8 +92,8 @@ sub load_fetcher {
 	  "1;" );
   eval $code;
 
-  my $plugin = $class->new;
-  $plugin;
+  my $fetcher = $class->new;
+  $fetcher;
 };
 
 true;
