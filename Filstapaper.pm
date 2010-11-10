@@ -45,7 +45,10 @@ get qr{/filter/(.+)} => sub {
   my ($u) = splat;
   my $param = params;
 
-  $u = "http://" . $u;    
+  unless ($u =~ /^http/) {
+    $u = "http://" . $u;    
+  }
+
   my $uri = URI->new(uri_unescape($u));
   delete $param->{splat};
   if ($param) {
