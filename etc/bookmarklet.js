@@ -15,6 +15,7 @@ var support_hosts = {
    'm.mt.co.kr': 1,
 };
 
+function _get_host(url) { url.match('http://([^/]+)'); return RegExp.$1; } 
 function _rlipb846707(){var title,d=document,l=d.location,href=l.href;
 d.title = title = d.title.substring(12);
 if (href == 'http://www.instapaper.com/i4' || typeof iptstbt != 'undefined') { alert("The bookmarklet is correctly installed."); throw(0); }
@@ -118,26 +119,20 @@ var loc_host = document.location.host;
 if (/link\.allblog\.net/.test(href) || /blogit\.blogkorea\.net/.test(href)) {
   href.match('.+(http://.+)$');
   href = RegExp.$1;
-  href.match('http://([^/]+)');
-  loc_host = RegExp.$1;
 } 
 
 // Daum View URL
 if (/v\.daum\.net/.test(href)) {
   var o = document.getElementById('viewIframe');
   href = o.src;
-  href.match('http://([^/]+)');
-  loc_host = RegExp.$1;
 }
 
 // 100인닷컴
 if (/www\.100in\.com/.test(href) || /metablog\.idomin\.com/.test(href)) {
   var o = document.getElementById('main_frame');
   href = o.src;
-  href.match('http://([^/]+)');
-  loc_host = RegExp.$1;
 }
-
+loc_host = _get_host(href);
 href.match('http://(.+)$');
 if (support_hosts[loc_host]) {
   href = 'http://app.perl.kr/filstapaper/filter/' + RegExp.$1;
