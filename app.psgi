@@ -1,3 +1,7 @@
+BEGIN {
+  $ENV{DANCER_ENVIRONMENT} = "production";
+};
+
 # PSGI application bootstraper for Dancer
 use Filstapaper;
 
