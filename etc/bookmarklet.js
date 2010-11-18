@@ -13,6 +13,7 @@ var support_hosts = {
    'kr.blog.yahoo.com': 1,
    'blog.paran.com': 1,
    'm.mt.co.kr': 1,
+   'www.okjsp.pe.kr': 1,
 };
 
 function _get_host(url) { url.match('http://([^/]+)'); return RegExp.$1; } 

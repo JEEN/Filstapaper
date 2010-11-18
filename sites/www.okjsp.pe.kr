@@ -7,7 +7,7 @@ sub fetch {
    my $ua = LWP::UserAgent->new;
    my $r = $ua->get($uri);
    my $content = Encode::encode_utf8($r->decoded_content);
-   $content =~ s/charset=ksc56017/charset=utf8/;
+   $content =~ s/charset=ksc5601/charset=utf8/;
    $content;
 }
 
