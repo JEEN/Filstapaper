@@ -83,7 +83,6 @@ sub load_fetcher {
   open my $fh, "<", $loc or die "Can't found host : $host";
   my $code = join '', <$fh>;
   my $class = "Filstapaper::Site::$pkg";
-  # use Data::Simple::Section
   $code = join "\n", (
     "package $class;",
 	  'use strict;',
