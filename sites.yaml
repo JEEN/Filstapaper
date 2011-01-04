@@ -1,5 +1,5 @@
 aliases:
-  "^[^\.]+\.blog\.me": "blog.naver.com"
+  ".+\.blog\.me": "blog.naver.com"
 
 supports:
   - url: http://blog.daum.net/
