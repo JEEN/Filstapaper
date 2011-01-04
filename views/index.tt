@@ -1,4 +1,5 @@
 <h1>Filstapaper</h1>
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fapp.perl.kr%2Ffilstapaper%2F&amp;layout=box_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:65px;" allowTransparency="true"></iframe>
 
 <h2>How To Use?</h2>
 <p><a href="javascript:function%20iprl5(){var%20d=document,z=d.createElement('scr'+'ipt'),b=d.body;try{if(!b)throw(0);d.title='(Saving...)%20'+d.title;z.setAttribute('src','http://github.com/JEEN/Filstapaper/raw/master/etc/bookmarklet.js?u='+encodeURIComponent(d.location.href)+'&t='+(new%20Date().getTime()));b.appendChild(z);}catch(e){alert('Please%20wait%20until%20the%20page%20has%20loaded.');}}iprl5();void(0)">Read Later!!</a> 을 북마크바로 끌어다놓으세요. </p>
