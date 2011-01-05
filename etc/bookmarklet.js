@@ -13,6 +13,7 @@ var support_hosts = {
    'kr.blog.yahoo.com': 1,
    'blog.paran.com': 1,
    'm.mt.co.kr': 1,
+   'm.etnews.co.kr': 1,
    'www.okjsp.pe.kr': 1,
 };
 
@@ -135,7 +136,7 @@ if (/www\.100in\.com/.test(href) || /metablog\.idomin\.com/.test(href)) {
 }
 loc_host = _get_host(href);
 href.match('http://(.+)$');
-if (support_hosts[loc_host]) {
+if (support_hosts[loc_host] || /blog\.me/.test(href)) {
   href = 'http://app.perl.kr/filstapaper/filter/' + RegExp.$1;
 }
 
