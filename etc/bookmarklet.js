@@ -137,7 +137,7 @@ if (/www\.100in\.com/.test(href) || /metablog\.idomin\.com/.test(href)) {
 loc_host = _get_host(href);
 href.match('http://(.+)$');
 if (support_hosts[loc_host] || /blog\.me/.test(href)) {
-  href = 'http://app.perl.kr/filstapaper/filter/' + RegExp.$1;
+  href = 'http://filstapaper.app.perl.kr/filter/' + RegExp.$1;
 }
 
 var e=window.getSelection,
