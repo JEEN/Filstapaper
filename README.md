@@ -19,7 +19,7 @@ Instapaper 에 넣어서 안보이는 페이지가 있는데, 이것 좀 어떻�
 
 웹개발자 => [stfuawsc][stfuawsc]
 
-[homepage]:http://app.perl.kr/filstapaper
+[homepage]:http://filstapaper.app.perl.kr/
 [sites]:http://github.com/JEEN/Filstapaper/tree/master/sites/
 [stfuawsc]:http://stfuawsc.com/
 
