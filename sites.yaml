@@ -26,9 +26,9 @@ supports:
   - url: http://www.cbs.co.kr/
     favicon: http://www.cbs.co.kr/favicon.ico
     title: CBS 기독교방송, 나누면 희망이 됩니다.
-  - url: http://www.ddanzi.com/
-    favicon: http://www.ddanzi.com/favicon.ico
-    title: 딴지일보
+#  - url: http://www.ddanzi.com/
+#    favicon: http://www.ddanzi.com/favicon.ico
+#    title: 딴지일보
   - url: http://www.devpia.com/
     favicon: http://www.devpia.com/favicon.ico
     title: 데브피아 :: 개발자 천국을 꿈꾸는 국내 최대의 SW 포탈

@@ -2,7 +2,6 @@ var support_hosts = {
    'blog.daum.net': 1,
    'blog.naver.com': 1,
    'www.jpnews.kr': 1,
-   'www.ddanzi.com': 1,
    'ytn.co.kr': 1,
    'www.devpia.com': 1,
    'news.itimes.co.kr': 1,
